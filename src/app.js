@@ -82,7 +82,7 @@ app.delete("/repositories/:id", validateRepositoryId, (request, response) => {
   );
 
   if (repositoryIndex < 0) {
-    response.status(400).json("Project Not Found");
+    response.status(400).json("Repository Not Found");
   }
 
   repositories.splice(repositoryIndex, 1);
@@ -95,7 +95,7 @@ app.post("/repositories/:id/like", validateRepositoryId, (request, response) => 
   const repository = repositories.find((repository) => repository.id === id);
 
   if (repository === undefined) {
-    response.status(400).json("Project Not Found");
+    response.status(400).json("Repository Not Found");
   }
 
   repository.likes += 1;
